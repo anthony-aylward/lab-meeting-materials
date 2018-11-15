@@ -147,7 +147,7 @@ class: center, middle, inverse
   T2D risk at the _NOTCH2_ locus is colocalized with _NOTCH2_ expression in
   liver. Note rs2641317 (teal).
 
-  .center[<img src="figure/notch2-ENSG00000134250.13.pdf" alt="notch2 locus" width="500"/>]
+  .center[<img src="figure/notch2-ENSG00000134250.13.svg" alt="notch2 locus" width="500px" type="application/pdf"/>]
 
   ```sh
   = NOTCH2 expression vs T2D ===============
@@ -197,7 +197,8 @@ class: center, middle, inverse
   ## Concordance of alignments
 
   Heatmap showing spearman correlations of coverage between HepG2 ChIP-seq
-  datasets. The _NOTCH2_ and _HNF6_ data appear to be convoluted.
+  datasets. The _NOTCH2_ and _HNF6_ data fail to sort themselves under
+  clustering.
 
   <img src="figure/bin200-spearman-heatmap.pdf" alt="alignment heatmap" width="500"/>
 ]
@@ -226,7 +227,7 @@ class: center, middle, inverse
 ]
 
 .right-column[
-  ## HNF6 binding at rs2641317
+  ## Binding at rs2641317
 
   Tentatively (in light of potential ChIP-seq data quality issues), there seems
   to be evidence for HNF6, NOTCH2, and TCF7L2 binding at rs2641317. The HNF6
@@ -371,6 +372,127 @@ class: center, middle, inverse
   * The most probable variant rs1513272 is in a muscle enhancer and disrupts
     USF2, which is an insulin responsive factor.
   * The second most probable is rs849135 which is in a weak adipose enhancer.
+]
+
+---
+
+.left-column[
+  ## TF imbalance
+  ### Effect size
+]
+
+.right-column[
+  ## Allelic imbalance effect size
+
+  Using methods for <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837449/">summarizing overdispersion</a>
+  and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5668944/">log-transformation</a>,
+  we can calculate a useful effect size for each SNP.
+  <a href="../hepg2-foxa2-imbalance-details/hepg2-foxa2-imbalance-details.html">More details</a>.
+
+  .center[<img src="../hepg2-foxa2-imbalance-details/figure/meta_hist.pdf" alt="histogram of imbalance stats" width="350"/>]
+
+  Distribution of imbalance effects (WRT alt allele) for FOXA2 ChIP-seq in HepG2.
+
+]
+
+---
+
+.left-column[
+  ## TF imbalance
+  ### Effect size
+  ### polyTest
+]
+
+.right-column[
+  ## polyTest
+
+  Estimates a model for how annotations contribute to the magnitude of GWAS
+  associations.
+
+  .center[<img src="figure/usf2-model.pdf" alt="polyTest example" width="550"/>]
+
+  polyTest model built on USF2 imbalance in HepG2 and baseline liver
+  annotations.
+]
+
+---
+
+.left-column[
+  ## TF imbalance
+  ### Effect size
+  ### polyTest
+  ### HepG2
+]
+
+.right-column[
+  ## HepG2
+  .center[<img src="figure/hepg2-heatmap-crop-left.pdf" alt="hepg2 heatmap left" width="275"/><img src="figure/hepg2-heatmap-crop-right.pdf" alt="hepg2 heatmap right" width="275"/>]
+  Z-scores of imbalance parameters from polyTest (With GWS SNPs included)
+]
+
+---
+
+.left-column[
+  ## TF imbalance
+  ### Effect size
+  ### polyTest
+  ### HepG2
+]
+
+.right-column[
+  ## HepG2
+  .center[<img src="figure/hepg2-heatmap-no-gws-crop-left.pdf" alt="hepg2 heatmap (no gws) left" width="275"/><img src="figure/hepg2-heatmap-no-gws-crop-right.pdf" alt="hepg2 heatmap (no gws) right" width="275"/>]
+  Z-scores of imbalance parameters from polyTest (With GWS SNPs excluded)
+]
+
+---
+
+.left-column[
+  ## TF imbalance
+  ### Effect size
+  ### HepG2
+]
+
+.right-column[
+  ## HepG2
+
+  .center[<img src="figure/usf2-scatter.pdf" alt="USF2 vs HOMA-B scatter plot" width="400"/>]
+
+  Scatterplot of USF2 imbalance in HepG2 vs. HOMA-B GWAS association.
+]
+
+---
+
+.left-column[
+  ## TF imbalance
+  ### Effect size
+  ### HepG2
+]
+
+.right-column[
+  ## HepG2
+  
+  Top polyTest enrichments for USF2 imbalance (with GWS SNPs included).
+
+  <img src="figure/usf2-table-crop-upper.png" alt="USF2 table" width="550"/>
+  <img src="figure/usf2-table-crop-lower.png" alt="USF2 table" width="550"/>
+]
+
+---
+
+.left-column[
+  ## TF imbalance
+  ### Effect size
+  ### HepG2
+]
+
+.right-column[
+  ## HepG2
+  
+  Top polyTest enrichments for USF2 imbalance (with GWS SNPs excluded).
+
+  <img src="figure/usf2-table-no-gws-crop-upper.png" alt="USF2 table" width="550"/>
+  <img src="figure/usf2-table-no-gws-crop-lower.png" alt="USF2 table" width="550"/>
 ]
 
     </textarea>
